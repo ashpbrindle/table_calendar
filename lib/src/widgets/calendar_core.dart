@@ -78,9 +78,13 @@ class CalendarCore extends StatelessWidget {
           rowDecoration: rowDecoration,
           tableBorder: tableBorder,
           dowBuilder: (context, day) {
-            return SizedBox(
-              height: dowHeight,
-              child: dowBuilder?.call(context, day),
+            return AspectRatio(
+              aspectRatio: 1 / 1,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                // height: dowHeight,
+                child: dowBuilder?.call(context, day),
+              ),
             );
           },
           dayBuilder: (context, day) {
@@ -93,8 +97,8 @@ class CalendarCore extends StatelessWidget {
                   _getFocusedDay(calendarFormat, previousFocusedDay, index);
             }
 
-            return SizedBox(
-              height: constrainedRowHeight ?? rowHeight,
+            return FittedBox(
+              fit: BoxFit.scaleDown,
               child: dayBuilder(context, day, baseDay),
             );
           },
