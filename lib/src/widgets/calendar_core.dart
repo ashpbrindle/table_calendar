@@ -97,9 +97,12 @@ class CalendarCore extends StatelessWidget {
                   _getFocusedDay(calendarFormat, previousFocusedDay, index);
             }
 
-            return FittedBox(
-              fit: BoxFit.scaleDown,
-              child: dayBuilder(context, day, baseDay),
+            return AspectRatio(
+              aspectRatio: 1 / 1,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: dayBuilder(context, day, baseDay),
+              ),
             );
           },
         );
